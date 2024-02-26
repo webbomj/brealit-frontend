@@ -9,7 +9,7 @@ export const getReceptionDays = () => {
 }
 
 export const login = (login, password) => {
-    return fetchData({path: '/login', method: 'POST', body: { login, password }})
+    return  fetchData({path: '/login', method: 'POST', body: { login, password }})
 }
 
 export const getPatient = (pacientId) => {

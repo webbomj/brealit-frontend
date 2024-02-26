@@ -1,20 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
-  f7ready,
   App,
   View,
+  f7ready,
+  useStore
 } from 'framework7-react';
 
 
 import routes from '../js/routes';
 import store from '../js/store';
 
-const MyApp = () => {
 
-  useEffect(() => {
-    store.dispatch('getReceptionDays');
-  }, [])
+const MyApp = () => {
 
   // Framework7 Parameters
   const f7params = {
@@ -29,14 +27,13 @@ const MyApp = () => {
       routes: routes,
   };
 
-  f7ready(() => {
-    // Call F7 APIs here
-  });
+  f7ready();
+
 
   return (
     <App { ...f7params }>
         {/* Your main view, should have "view-main" class */}
-        <View main className="safe-areas" url="/" />
+        <View className="safe-areas" reloadPages={true} url="/"  browserHistory={true} animate={true}/> 
     </App>
   )
 }
